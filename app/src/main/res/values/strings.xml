@@ -1,0 +1,23 @@
+<resources>
+    <string name="app_name">WeatherApp</string>
+
+    <!-- Search view - toolbar -->
+    <string name="search">Поиск</string>
+    <string name="search_hint">Название города</string>
+
+      <!-- Toast -->
+    <string name="city_added">Город %s добавлен</string>
+    <string name="city_allredy">Такой город уже есть</string>
+    <string name="try_again">Попробуйте снова</string>
+    <string name="error">Не удалось поключиться к сети</string>
+
+    <!-- View -->
+    <string name="pressure">Давление</string>
+    <string name="clouds">Облачность</string>
+    <string name="wind_speed">Скорость ветра</string>
+    <string name="humidity">Влажность</string>
+    <string name="feels_like">Ощущается как"</string>
+    <string name="visibility">Видимость"</string>
+
+
+</resources>
