@@ -1,6 +1,7 @@
 package com.tenuchon.weatherapp.utils;
 
 
+import android.app.ActivityOptions;
 import android.content.Context;
 import android.content.Intent;
 
@@ -17,6 +18,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.tenuchon.weatherapp.R;
 import com.tenuchon.weatherapp.model.City;
 import com.tenuchon.weatherapp.ui.AboutActivity;
+import com.tenuchon.weatherapp.ui.MainActivity;
 
 import java.util.List;
 

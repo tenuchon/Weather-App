@@ -4,6 +4,8 @@ import android.content.Context;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
+
 import com.squareup.picasso.Picasso;
 import com.tenuchon.weatherapp.R;
 import com.tenuchon.weatherapp.model.City;
@@ -29,14 +31,14 @@ public class DataUtils {
         return instance;
     }
 
-    public static void loadCity(final String cityName, final CityAdapter adapter, final Context context) {
+    public static void loadCity(final String cityName, final CityAdapter adapter, final Context context, final SwipeRefreshLayout refreshLayout, final boolean isLast) {
         NetworkService.getInstance().getWeatherApi().getCurrentWeather(cityName, KEY, DIMENSION, LANGUAGE)
                 .enqueue(new Callback<CurrentWeather>() {
                     @Override
                     public void onResponse(Call<CurrentWeather> call, Response<CurrentWeather> response) {
                         if (response.isSuccessful()) {
                             if (adapter != null) addCityOnDatabase(adapter, response);
-                            else updateCityOnDatabase(context, response);
+                            else updateCityOnDatabase(context, response, refreshLayout, isLast);
 
                         } else
                             Toast.makeText(context, context.getString(R.string.try_again), Toast.LENGTH_LONG).show();
@@ -67,21 +69,27 @@ public class DataUtils {
     }
 
 
-    private static void updateCityOnDatabase(Context context, Response<CurrentWeather> response) {
+    private static void updateCityOnDatabase(Context context, Response<CurrentWeather> response, SwipeRefreshLayout refreshLayout, boolean isLast) {
         CurrentWeather currentWeather = response.body();
         if (currentWeather != null) {
             City copy = new City(currentWeather);
             CityLab.getInstance(context).updateCity(copy);
+            //если последний элемент, убираем Progress Bar
+            if (isLast) refreshLayout.setRefreshing(false);
         }
     }
 
-    public static List<City> getCitiesList(Context context) {
+    public static List<City> getCitiesList(Context context,SwipeRefreshLayout refreshLayout) {
         List<City> list = CityLab.getInstance(context).getAllCities();
 
         //Если список город не пуст, то обновляем дынные
         if (list.size() != 0) {
+            //последний элемент
+            boolean isLast = false;
             for (int i = 0; i < list.size(); i++) {
-                loadCity(list.get(i).getName(), null, context);
+                if (i + 1 == list.size()) isLast = true;
+
+                loadCity(list.get(i).getName(), null, context,refreshLayout,isLast);
             }
             list = CityLab.getInstance(context).getAllCities();
         }
