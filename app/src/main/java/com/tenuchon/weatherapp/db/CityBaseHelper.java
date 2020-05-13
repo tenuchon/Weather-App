@@ -3,14 +3,15 @@ package com.tenuchon.weatherapp.db;
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
-import  static com.tenuchon.weatherapp.db.CitiesDBScheme.*;
+
+import static com.tenuchon.weatherapp.db.CitiesDBScheme.*;
 
 public class CityBaseHelper extends SQLiteOpenHelper {
     private static final int VERSION = 1;
     private static final String DATABASE_NAME = "citiesBase.db";
 
-    public CityBaseHelper(Context context){
-        super(context,DATABASE_NAME,null,VERSION);
+    public CityBaseHelper(Context context) {
+        super(context, DATABASE_NAME, null, VERSION);
     }
 
     @Override

@@ -4,6 +4,7 @@ package com.tenuchon.weatherapp.model;
 import com.tenuchon.weatherapp.model.DTO.CurrentWeather;
 
 import java.io.Serializable;
+
 public class City implements Serializable {
     private int weatherId;
     private String name;

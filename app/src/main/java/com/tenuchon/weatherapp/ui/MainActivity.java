@@ -43,7 +43,7 @@ public class MainActivity extends AppCompatActivity implements Toolbar.OnMenuIte
     public void initRecyclerView() {
         LinearLayoutManager layoutManager = new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false);
         recyclerView.setLayoutManager(layoutManager);
-        List<City> cities = DataUtils.getCitiesList(this,refreshLayout);
+        List<City> cities = DataUtils.getCitiesList(this, refreshLayout);
         adapter = new CityAdapter(this, cities);
         recyclerView.setAdapter(adapter);
         adapter.attachHelperToRecyclerView(recyclerView);
@@ -67,7 +67,7 @@ public class MainActivity extends AppCompatActivity implements Toolbar.OnMenuIte
                 searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
                     @Override
                     public boolean onQueryTextSubmit(String query) {
-                        DataUtils.loadCity(query, adapter, getApplicationContext(),null,false);
+                        DataUtils.loadCity(query, adapter, getApplicationContext(), null, false);
                         searchView.onActionViewCollapsed();
                         searchView.clearFocus();
                         return false;
@@ -78,15 +78,13 @@ public class MainActivity extends AppCompatActivity implements Toolbar.OnMenuIte
                         return false;
                     }
                 });
-
-
         }
         return true;
     }
 
     @Override
     public void onRefresh() {
-        List<City> cities = DataUtils.getCitiesList(this,refreshLayout);
+        List<City> cities = DataUtils.getCitiesList(this, refreshLayout);
         adapter.setList(cities);
     }
 }

@@ -12,7 +12,7 @@ public class NetworkService {
     private static final String URL = "https://api.openweathermap.org";
     private Retrofit retrofit;
 
-    private NetworkService(){
+    private NetworkService() {
         HttpLoggingInterceptor interceptor = new HttpLoggingInterceptor();
         interceptor.setLevel(HttpLoggingInterceptor.Level.BODY);
 
@@ -25,14 +25,17 @@ public class NetworkService {
                 .build();
     }
 
-    public static NetworkService getInstance(){
-        if (instance ==null){
-            instance = new NetworkService();
+    public static NetworkService getInstance() {
+        if (instance == null) {
+            synchronized (NetworkService.class) {
+                if (instance == null)
+                    instance = new NetworkService();
+            }
         }
         return instance;
     }
 
-    public WeatherApi getWeatherApi(){
+    public WeatherApi getWeatherApi() {
         return retrofit.create(WeatherApi.class);
     }
 

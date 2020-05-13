@@ -25,7 +25,12 @@ public class CityLab {
     }
 
     public static CityLab getInstance(Context context) {
-        if (cityLab == null) cityLab = new CityLab(context);
+        if (cityLab == null) {
+            synchronized (CityLab.class) {
+                if (cityLab == null)
+                    cityLab = new CityLab(context);
+            }
+        }
         return cityLab;
     }
 

@@ -15,8 +15,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:background="@drawable/shape_bg"
-            >
+            android:background="@drawable/shape_bg">
 
             <ImageView
                 android:id="@+id/weather_icon"
@@ -25,8 +24,7 @@
                 android:layout_alignParentBottom="false"
                 android:layout_centerInParent="true"
                 android:layout_gravity="center"
-                android:layout_toEndOf="@id/temp"
-                android:src="@drawable/icon_few_clouds_day" />
+                android:layout_toEndOf="@id/temp" />
 
             <TextView
                 android:id="@+id/temp"
@@ -37,7 +35,6 @@
                 android:layout_marginTop="70dp"
                 android:gravity="center"
                 android:paddingStart="16dp"
-                android:text="-30"
                 android:textColor="@color/white"
                 android:textSize="80sp" />
 
@@ -50,7 +47,6 @@
                 android:layout_centerInParent="true"
                 android:layout_gravity="center"
                 android:layout_marginTop="6dp"
-                android:text="небольшой дождь"
                 android:textColor="@color/white" />
 
         </RelativeLayout>
@@ -58,15 +54,14 @@
         <ScrollView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_weight="1"
-         >
+            android:layout_weight="1">
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
                 android:layout_marginTop="16dp"
-                >
+                android:baselineAligned="false"
+                android:orientation="horizontal">
 
                 <LinearLayout
                     android:layout_width="0dp"
@@ -89,6 +84,7 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="0dp"
                                 android:layout_weight="2"
+                                android:contentDescription="@string/pressure"
                                 android:scaleType="centerInside"
                                 android:src="@drawable/ic_pressure" />
 
@@ -98,8 +94,7 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="0dp"
                                 android:layout_weight="1"
-                                android:gravity="center|bottom"
-                                android:text="1003 mb" />
+                                android:gravity="center|bottom" />
 
                             <TextView
                                 android:layout_width="match_parent"
@@ -127,6 +122,7 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="0dp"
                                 android:layout_weight="2"
+                                android:contentDescription="@string/clouds"
                                 android:scaleType="centerInside"
                                 android:src="@drawable/ic_clouds" />
 
@@ -136,8 +132,7 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="0dp"
                                 android:layout_weight="1"
-                                android:gravity="center|bottom"
-                                android:text="70%" />
+                                android:gravity="center|bottom" />
 
                             <TextView
                                 android:layout_width="match_parent"
@@ -173,6 +168,7 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="0dp"
                                 android:layout_weight="2"
+                                android:contentDescription="@string/wind_speed"
                                 android:scaleType="centerInside"
                                 android:src="@drawable/ic_wind_speed" />
 
@@ -182,8 +178,7 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="0dp"
                                 android:layout_weight="1"
-                                android:gravity="center|bottom"
-                                android:text="20 km/h" />
+                                android:gravity="center|bottom" />
 
                             <TextView
                                 android:layout_width="match_parent"
@@ -211,6 +206,7 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="0dp"
                                 android:layout_weight="2"
+                                android:contentDescription="@string/humidity"
                                 android:scaleType="centerInside"
                                 android:src="@drawable/ic_humidity" />
 
@@ -220,8 +216,7 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="0dp"
                                 android:layout_weight="1"
-                                android:gravity="center|bottom"
-                                android:text="30%" />
+                                android:gravity="center|bottom" />
 
                             <TextView
                                 android:layout_width="match_parent"
@@ -257,6 +252,7 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="0dp"
                                 android:layout_weight="2"
+                                android:contentDescription="@string/feels_like"
                                 android:scaleType="centerInside"
                                 android:src="@drawable/ic_feels_like" />
 
@@ -266,8 +262,7 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="0dp"
                                 android:layout_weight="1"
-                                android:gravity="center|bottom"
-                                android:text="-28" />
+                                android:gravity="center|bottom" />
 
                             <TextView
                                 android:layout_width="match_parent"
@@ -295,6 +290,7 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="0dp"
                                 android:layout_weight="2"
+                                android:contentDescription="@string/visibility"
                                 android:scaleType="centerInside"
                                 android:src="@drawable/ic_visibility" />
 
@@ -304,8 +300,7 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="0dp"
                                 android:layout_weight="1"
-                                android:gravity="center|bottom"
-                                android:text="100%" />
+                                android:gravity="center|bottom" />
 
                             <TextView
                                 android:layout_width="match_parent"

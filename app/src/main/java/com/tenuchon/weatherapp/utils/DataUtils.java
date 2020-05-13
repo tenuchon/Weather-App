@@ -22,14 +22,6 @@ public class DataUtils {
     private static final String KEY = "770e015e38d5c4eadf68b1289999af33";
     private static final String DIMENSION = "metric";
     private static final String LANGUAGE = "ru";
-    private static DataUtils instance;
-
-    public static DataUtils getInstance() {
-        if (instance == null) {
-            return new DataUtils();
-        }
-        return instance;
-    }
 
     public static void loadCity(final String cityName, final CityAdapter adapter, final Context context, final SwipeRefreshLayout refreshLayout, final boolean isLast) {
         NetworkService.getInstance().getWeatherApi().getCurrentWeather(cityName, KEY, DIMENSION, LANGUAGE)
@@ -56,7 +48,7 @@ public class DataUtils {
         Context context = adapter.getContext();
         CurrentWeather currentWeather = response.body();
         if (currentWeather != null) {
-             City city = new City(currentWeather);
+            City city = new City(currentWeather);
             if (CityLab.getInstance(context).isInDatabase(city)) {
                 CityLab.getInstance(context).addCity(city);
                 adapter.addCity(city);
@@ -79,7 +71,7 @@ public class DataUtils {
         }
     }
 
-    public static List<City> getCitiesList(Context context,SwipeRefreshLayout refreshLayout) {
+    public static List<City> getCitiesList(Context context, SwipeRefreshLayout refreshLayout) {
         List<City> list = CityLab.getInstance(context).getAllCities();
 
         //Если список город не пуст, то обновляем дынные
@@ -89,7 +81,7 @@ public class DataUtils {
             for (int i = 0; i < list.size(); i++) {
                 if (i + 1 == list.size()) isLast = true;
 
-                loadCity(list.get(i).getName(), null, context,refreshLayout,isLast);
+                loadCity(list.get(i).getName(), null, context, refreshLayout, isLast);
             }
             list = CityLab.getInstance(context).getAllCities();
         }

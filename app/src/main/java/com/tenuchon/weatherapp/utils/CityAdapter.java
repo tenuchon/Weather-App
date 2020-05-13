@@ -1,7 +1,6 @@
 package com.tenuchon.weatherapp.utils;
 
 
-import android.app.ActivityOptions;
 import android.content.Context;
 import android.content.Intent;
 
@@ -18,7 +17,6 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.tenuchon.weatherapp.R;
 import com.tenuchon.weatherapp.model.City;
 import com.tenuchon.weatherapp.ui.AboutActivity;
-import com.tenuchon.weatherapp.ui.MainActivity;
 
 import java.util.List;
 
@@ -106,7 +104,7 @@ public class CityAdapter extends RecyclerView.Adapter<CityAdapter.CityHolder> {
 
         public void bind(City city) {
             this.city = city;
-            DataUtils.setWeatherIcon(icon,city.getWeatherId());
+            DataUtils.setWeatherIcon(icon, city.getWeatherId());
             name.setText(city.getName());
             temp.setText(Converter.convertTemperature(city.getTemp()));
             maxMin.setText(Converter.convertMaxAndMin(city.getMaxTemp(), city.getMinTemp()));
@@ -117,7 +115,7 @@ public class CityAdapter extends RecyclerView.Adapter<CityAdapter.CityHolder> {
         public void onClick(View v) {
             Context context = v.getContext();
             Intent intent = new Intent(context, AboutActivity.class);
-            intent.putExtra("item", city);
+            intent.putExtra(AboutActivity.KEY_BUNDLE, city);
             context.startActivity(intent);
         }
     }

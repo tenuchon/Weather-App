@@ -14,6 +14,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 public class AboutActivity extends AppCompatActivity {
+    public static final String KEY_BUNDLE = "item";
     private TextView temp, pressure, clouds, windSpeed, humidity, feelsLike, visibility, weatherName;
     private ImageView weatherIcon;
     private City city;
@@ -47,7 +48,7 @@ public class AboutActivity extends AppCompatActivity {
     private void initValues() {
         Bundle arg = getIntent().getExtras();
         if (arg != null)
-            city = (City) arg.getSerializable("item");
+            city = (City) arg.getSerializable(KEY_BUNDLE);
 
         if (city != null) {
             getSupportActionBar().setTitle(city.getName());
